@@ -1,0 +1,333 @@
+/* ==========================================================================
+   THE CHITWAN SANCTUARY — PICTURE PERFECT ANIMATIONS & LUXURY TRANSITIONS
+   Crafted with GPU-accelerated transforms & high-end editorial easing curves.
+   ========================================================================== */
+
+:root {
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --forest-glow: rgba(38, 51, 39, 0.12);
+  --bronze-glow: rgba(184, 138, 76, 0.25);
+}
+
+/* --- 1. Custom Luxury Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f3ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #b88a4c;
+  border-radius: 9999px;
+  border: 2px solid #f5f3ec;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #926a35;
+}
+
+/* --- 2. Ken Burns Hero Atmosphere --- */
+@keyframes kenBurnsAtmosphere {
+  0% {
+    transform: scale(1.0) translateY(0);
+  }
+  50% {
+    transform: scale(1.07) translateY(-1%);
+  }
+  100% {
+    transform: scale(1.0) translateY(0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsAtmosphere 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* --- 3. Ambient Floating & Beacon Pulses --- */
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: ambientFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes beaconPulseWave {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-beacon {
+  animation: beaconPulseWave 2.8s infinite;
+}
+
+@keyframes bronzeGlowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 14px 0 rgba(184, 138, 76, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 24px 4px rgba(184, 138, 76, 0.45);
+  }
+}
+
+.glow-pulse-bronze {
+  animation: bronzeGlowPulse 3.5s ease-in-out infinite;
+}
+
+/* --- 4. Shimmer / Reflection Sweep on Luxury Buttons --- */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.shimmer-btn:hover::after {
+  left: 140%;
+  transition: all 0.85s ease-out;
+}
+
+/* --- 5. Scroll-Triggered Reveal Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-editorial);
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger Delays for Grids */
+.delay-1 { transition-delay: 0.08s !important; }
+.delay-2 { transition-delay: 0.16s !important; }
+.delay-3 { transition-delay: 0.24s !important; }
+.delay-4 { transition-delay: 0.32s !important; }
+.delay-5 { transition-delay: 0.40s !important; }
+.delay-6 { transition-delay: 0.48s !important; }
+
+/* --- 6. Card Elevation, Lift & Spotlight Shine --- */
+.interactive-card {
+  transition: transform 0.45s var(--ease-editorial), box-shadow 0.45s var(--ease-editorial), border-color 0.45s var(--ease-editorial);
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px var(--forest-glow), 0 0 0 1px rgba(184, 138, 76, 0.2);
+}
+
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.8s var(--ease-editorial);
+  will-change: transform;
+}
+
+.interactive-card:hover .image-zoom-container img,
+.group:hover .image-zoom-container img {
+  transform: scale(1.07);
+}
+
+/* --- 7. Ripple Click Feedback --- */
+.ripple-fx {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: rippleSpread 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleSpread {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* --- 8. Smooth Accordion & Details --- */
+details[open] summary ~ * {
+  animation: sweepDown 0.4s var(--ease-editorial);
+}
+
+@keyframes sweepDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+summary svg {
+  transition: transform 0.35s var(--ease-editorial);
+}
+
+details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* --- 9. Modal Entrance Animation --- */
+.modal-overlay {
+  transition: opacity 0.35s ease;
+}
+
+.modal-dialog-content {
+  transition: transform 0.45s var(--ease-spring), opacity 0.35s ease;
+}
+
+.modal-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-hidden .modal-dialog-content {
+  transform: scale(0.93) translateY(18px);
+  opacity: 0;
+}
+
+.modal-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-visible .modal-dialog-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* --- 10. Drawer Entrance Animation --- */
+.drawer-content {
+  transition: transform 0.45s var(--ease-editorial);
+}
+
+.drawer-closed {
+  transform: translateX(100%);
+}
+
+.drawer-open {
+  transform: translateX(0);
+}
+
+/* --- 11. Live Counter Animation Highlight --- */
+.number-counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.number-bump {
+  animation: numberBump 0.35s var(--ease-spring);
+}
+
+@keyframes numberBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); color: #b88a4c; }
+  100% { transform: scale(1); }
+}
+
+/* --- 12. Floating Bottom Mobile Quick Bar Slide-up --- */
+@keyframes slideUpMobileBar {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-sticky-booking {
+  animation: slideUpMobileBar 0.5s 0.8s var(--ease-editorial) both;
+}
